@@ -49,7 +49,7 @@ class Dropdown extends JComboBox{
 }
 
 /**
- * A simplified JLabel
+ * A simplified JLabel for simple swing
  */
 class Label extends JLabel{
     /**
@@ -59,10 +59,8 @@ class Label extends JLabel{
      * @param y the Y cor
      * @param sizeX the X size
      * @param sizeY the Y size
-     * @param text the text of the label
-     */
-    Label(Frame frame, int x, int y, int sizeX, int sizeY, String text)
-    {
+     * @param text the text of the label*/
+    Label(Frame frame, int x, int y, int sizeX, int sizeY, String text) {
         this.setBounds(x,y,sizeX,sizeY);
         this.setText(text);
         startup(frame);
@@ -72,8 +70,7 @@ class Label extends JLabel{
      * Simple startup things
      * @param frame The frame to be added to
      */
-    void startup(Frame frame)
-    {
+    void startup(Frame frame) {
         this.setVisible(true);
         setColor(Color.white);
         frame.panel.add(this);
@@ -119,7 +116,8 @@ class Button extends JButton {
      * @param sizeX the X size
      * @param sizeY the Y size
      */
-    Button(Frame frame, int x, int y, int sizeX, int sizeY) {
+    Button(Frame frame, int x, int y, int sizeX, int sizeY, boolean enabled) {
+        this.setEnabled(enabled);
         this.setBounds(x,y,sizeX,sizeY);
         startup(frame, this);
     }
@@ -133,7 +131,7 @@ class Button extends JButton {
      * @param sizeY the Y size
      * @param text The text of the button
      */
-    Button(Frame frame, int x, int y, int sizeX, int sizeY, String text) {
+    Button(Frame frame, int x, int y, int sizeX, int sizeY, boolean enabled, String text) {
         this.setBounds(x,y,sizeX,sizeY);
         this.setText(text);
         startup(frame, this);

@@ -1,5 +1,3 @@
-package UI.SimpleSwing;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ItemEvent;
@@ -14,7 +12,7 @@ class Base extends JComponent{
      */
     void startup(Frame frame, JComponent add) {
         this.setVisible(true);
-        setColor(Color.white);
+        setColor(Color.white, add);
         frame.panel.add(add);
     }
     /**
@@ -22,8 +20,8 @@ class Base extends JComponent{
      * @param sizeX the X Size
      * @param sizeY the Y Size
      */
-    public void setSize(int sizeX, int sizeY) {
-        this.setBounds(this.getX(),this.getY(),sizeX,sizeY);
+    public void setSize(int sizeX, int sizeY, JComponent todo) {
+        todo.setBounds(todo.getX(),todo.getY(),sizeX,sizeY);
     }
 
     /**
@@ -31,16 +29,16 @@ class Base extends JComponent{
      * @param x the X cor
      * @param y the Y cor
      */
-    public void setPos(int x, int y) {
-        this.setBounds(x,y,this.getSize().width,this.getSize().height);
+    public void setPos(int x, int y,JComponent todo) {
+        todo.setBounds(x,y,todo.getSize().width,todo.getSize().height);
     }
 
     /**
      * Sets the color of the component
      * @param color the new color
      */
-    public void setColor(Color color) {
-        this.setBackground(color);
+    public void setColor(Color color, JComponent todo) {
+        todo.setBackground(color);
     }
 }
 
@@ -60,7 +58,7 @@ class Frame extends JFrame {
      * @param sizeX The X size of the window
      * @param sizeY The Y size of the window
      */
-    Frame(String title, boolean undecorated , boolean onTop, boolean resizable, int sizeX, int sizeY) {
+    public Frame(String title, boolean undecorated, boolean onTop, boolean resizable, int sizeX, int sizeY) {
         panel.setLayout(null);
         this.add(panel);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -104,14 +102,44 @@ class CheckBox extends JCheckBox {
 
     public boolean GetIsChecked(){return isChecked;}
 
-    public void setColor(Color color){base.setColor(color);}
+    public void setColor(Color color){base.setColor(color, this);}
     void startup(Frame frame) {base.startup(frame, this);}
     public void setSize(int sizeX, int sizeY) {base.setSize(sizeX,sizeY);}
 
-    public void setPos(int x, int y) {base.setPos(x,y);}
+    public void setPos(int x, int y) {base.setPos(x,y, this);}
 
 
 }
+/**
+ * Text box is used to display a simple text box that can be written to and read from
+ */
+class TextBoxArea extends JTextArea{
+
+    Base base = new Base();
+    /**
+     * Creates a simple text box that can be written to and read from
+     * @param frame The frame to be added to
+     * @param x the X cor
+     * @param y the Y cor
+     * @param sizeX the X size
+     * @param sizeY the Y size
+     */
+    TextBoxArea(Frame frame, int x, int y, int sizeX, int sizeY)
+    {
+        this.setBounds(x,y,sizeX,sizeY);
+        startup(frame);
+    }
+
+    public void setColor(Color color){base.setColor(color, this);}
+    void startup(Frame frame) {base.startup(frame, this);}
+    public void setSize(int sizeX, int sizeY) {
+        this.setBounds(this.getX(),this.getY(),sizeX,sizeY);
+    }
+
+
+    public void setPos(int x, int y) {base.setPos(x,y, this);}
+}
+
 /**
  * Text box is used to display a simple text box that can be written to and read from
  */
@@ -132,12 +160,18 @@ class TextBox extends JTextField{
         startup(frame);
     }
 
-    public void setColor(Color color){base.setColor(color);}
+    public void setColor(Color color){base.setColor(color, this);}
     void startup(Frame frame) {base.startup(frame, this);}
-    public void setSize(int sizeX, int sizeY) {base.setSize(sizeX,sizeY);}
+    public void setSize(int sizeX, int sizeY) {
+        this.setBounds(this.getX(),this.getY(),sizeX,sizeY);
+    }
 
-    public void setPos(int x, int y) {base.setPos(x,y);}
+
+    public void setPos(int x, int y) {base.setPos(x,y, this);}
 }
+
+
+
 
 class Dropdown extends JComboBox{
     Base base = new Base();
@@ -156,11 +190,11 @@ class Dropdown extends JComboBox{
         startup(frame);
     }
 
-    public void setColor(Color color){base.setColor(color);}
+    public void setColor(Color color){base.setColor(color, this);}
     void startup(Frame frame) {base.startup(frame,this);}
     public void setSize(int sizeX, int sizeY) {base.setSize(sizeX,sizeY);}
 
-    public void setPos(int x, int y) {base.setPos(x,y);}
+    public void setPos(int x, int y) {base.setPos(x,y, this);}
 }
 
 /**
@@ -183,11 +217,11 @@ class Label extends JLabel{
         startup(frame);
     }
 
-    public void setColor(Color color){base.setColor(color);}
+    public void setColor(Color color){base.setColor(color, this);}
     void startup(Frame frame) {base.startup(frame,this);}
     public void setSize(int sizeX, int sizeY) {base.setSize(sizeX,sizeY);}
 
-    public void setPos(int x, int y) {base.setPos(x,y);}
+    public void setPos(int x, int y) {base.setPos(x,y, this);}
 }
 
 /**
@@ -240,6 +274,6 @@ class Button extends JButton {
     void startup(Frame frame) {base.startup(frame,this);}
     public void setSize(int sizeX, int sizeY) {base.setSize(sizeX,sizeY);}
 
-    public void setPos(int x, int y) {base.setPos(x,y);}
+    public void setPos(int x, int y) {base.setPos(x,y, this);}
 
 }

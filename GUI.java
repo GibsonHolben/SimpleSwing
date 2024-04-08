@@ -43,15 +43,88 @@ class Frame extends JFrame {
 
 class TextBox extends JTextField{
 
+    TextBox(Frame frame, int x, int y, int sizeX, int sizeY)
+    {
+        this.setBounds(x,y,sizeX,sizeY);
+        startup(frame);
+    }
+    void startup(Frame frame) {
+        this.setVisible(true);
+        setColor(Color.white);
+        frame.panel.add(this);
+    }
+
+    /**
+     * Sets the size of the label
+     * @param sizeX the X Size
+     * @param sizeY the Y Size
+     */
+    public void setSize(int sizeX, int sizeY) {
+        this.setBounds(this.getX(),this.getY(),sizeX,sizeY);
+    }
+
+    /**
+     * Sets the pos of the component
+     * @param x the X cor
+     * @param y the Y cor
+     */
+    public void setPos(int x, int y) {
+        this.setBounds(x,y,this.getSize().width,this.getSize().height);
+    }
+
+    /**
+     * Sets the color of the component
+     * @param color the new color
+     */
+    public void setColor(Color color) {
+        this.setBackground(color);
+    }
 }
 class Dropdown extends JComboBox{
+    Dropdown(Frame frame, int x, int y, int sizeX, int sizeY)
+    {
+        this.setBounds(x,y,sizeX,sizeY);
+        startup(frame);
+    }
+    void startup(Frame frame) {
+        this.setVisible(true);
+        setColor(Color.white);
+        frame.panel.add(this);
+    }
 
+    /**
+     * Sets the size of the label
+     * @param sizeX the X Size
+     * @param sizeY the Y Size
+     */
+    public void setSize(int sizeX, int sizeY) {
+        this.setBounds(this.getX(),this.getY(),sizeX,sizeY);
+    }
+
+    /**
+     * Sets the pos of the component
+     * @param x the X cor
+     * @param y the Y cor
+     */
+    public void setPos(int x, int y) {
+        this.setBounds(x,y,this.getSize().width,this.getSize().height);
+    }
+
+    /**
+     * Sets the color of the component
+     * @param color the new color
+     */
+    public void setColor(Color color) {
+        this.setBackground(color);
+    }
 }
 
 /**
  * A simplified JLabel for simple swing
  */
 class Label extends JLabel{
+
+
     /**
      * Creates a JLabel
      * @param frame The frame to be added to
@@ -95,7 +168,7 @@ class Label extends JLabel{
     }
 
     /**
-     * Sets the color of the compoent
+     * Sets the color of the component
      * @param color the new color
      */
     public void setColor(Color color) {

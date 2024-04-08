@@ -2,6 +2,47 @@ package UI.SimpleSwing;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
+
+
+class Base extends JComponent{
+    /**
+     * Simple startup things
+     * @param frame The frame to be added to
+     */
+    void startup(Frame frame, JComponent add) {
+        this.setVisible(true);
+        setColor(Color.white);
+        frame.panel.add(add);
+    }
+    /**
+     * Sets the size of the label
+     * @param sizeX the X Size
+     * @param sizeY the Y Size
+     */
+    public void setSize(int sizeX, int sizeY) {
+        this.setBounds(this.getX(),this.getY(),sizeX,sizeY);
+    }
+
+    /**
+     * Sets the pos of the component
+     * @param x the X cor
+     * @param y the Y cor
+     */
+    public void setPos(int x, int y) {
+        this.setBounds(x,y,this.getSize().width,this.getSize().height);
+    }
+
+    /**
+     * Sets the color of the component
+     * @param color the new color
+     */
+    public void setColor(Color color) {
+        this.setBackground(color);
+    }
+}
 
 /**
  * A simplified JFrame
@@ -40,90 +81,93 @@ class Frame extends JFrame {
         this.setBackground(color);
     }
 }
+class CheckBox extends JCheckBox {
 
+    Base base = new Base();
+    private boolean isChecked;
+    CheckBox(Frame frame, int x, int y, int sizeX, int sizeY, String Text, boolean checked)
+    {
+        this.setBounds(x,y,sizeX,sizeY);
+        this.setText(Text);
+        this.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if(e.getStateChange() == ItemEvent.SELECTED) {//checkbox has been selected
+                    isChecked = true;
+                } else {//checkbox has been deselected
+                    isChecked = false;
+                };
+            }
+        });
+        startup(frame);
+    }
+
+    public boolean GetIsChecked(){return isChecked;}
+
+    public void setColor(Color color){base.setColor(color);}
+    void startup(Frame frame) {base.startup(frame, this);}
+    public void setSize(int sizeX, int sizeY) {base.setSize(sizeX,sizeY);}
+
+    public void setPos(int x, int y) {base.setPos(x,y);}
+
+
+}
+/**
+ * Text box is used to display a simple text box that can be written to and read from
+ */
 class TextBox extends JTextField{
 
+    Base base = new Base();
+    /**
+     * Creates a simple text box that can be written to and read from
+     * @param frame The frame to be added to
+     * @param x the X cor
+     * @param y the Y cor
+     * @param sizeX the X size
+     * @param sizeY the Y size
+     */
     TextBox(Frame frame, int x, int y, int sizeX, int sizeY)
     {
         this.setBounds(x,y,sizeX,sizeY);
         startup(frame);
     }
-    void startup(Frame frame) {
-        this.setVisible(true);
-        setColor(Color.white);
-        frame.panel.add(this);
-    }
 
-    /**
-     * Sets the size of the label
-     * @param sizeX the X Size
-     * @param sizeY the Y Size
-     */
-    public void setSize(int sizeX, int sizeY) {
-        this.setBounds(this.getX(),this.getY(),sizeX,sizeY);
-    }
+    public void setColor(Color color){base.setColor(color);}
+    void startup(Frame frame) {base.startup(frame, this);}
+    public void setSize(int sizeX, int sizeY) {base.setSize(sizeX,sizeY);}
 
+    public void setPos(int x, int y) {base.setPos(x,y);}
+}
+
+class Dropdown extends JComboBox{
+    Base base = new Base();
     /**
-     * Sets the pos of the component
+     * Creates a simple dropdown menu
+     * @param frame The frame to be added to
      * @param x the X cor
      * @param y the Y cor
+     * @param sizeX the X size
+     * @param sizeY the Y size
      */
-    public void setPos(int x, int y) {
-        this.setBounds(x,y,this.getSize().width,this.getSize().height);
-    }
-
-    /**
-     * Sets the color of the component
-     * @param color the new color
-     */
-    public void setColor(Color color) {
-        this.setBackground(color);
-    }
-}
-class Dropdown extends JComboBox{
-    Dropdown(Frame frame, int x, int y, int sizeX, int sizeY)
+    Dropdown(Frame frame, int x, int y, int sizeX, int sizeY, Object[] array)
     {
+        super(array);
         this.setBounds(x,y,sizeX,sizeY);
         startup(frame);
     }
-    void startup(Frame frame) {
-        this.setVisible(true);
-        setColor(Color.white);
-        frame.panel.add(this);
-    }
 
-    /**
-     * Sets the size of the label
-     * @param sizeX the X Size
-     * @param sizeY the Y Size
-     */
-    public void setSize(int sizeX, int sizeY) {
-        this.setBounds(this.getX(),this.getY(),sizeX,sizeY);
-    }
+    public void setColor(Color color){base.setColor(color);}
+    void startup(Frame frame) {base.startup(frame,this);}
+    public void setSize(int sizeX, int sizeY) {base.setSize(sizeX,sizeY);}
 
-    /**
-     * Sets the pos of the component
-     * @param x the X cor
-     * @param y the Y cor
-     */
-    public void setPos(int x, int y) {
-        this.setBounds(x,y,this.getSize().width,this.getSize().height);
-    }
-
-    /**
-     * Sets the color of the component
-     * @param color the new color
-     */
-    public void setColor(Color color) {
-        this.setBackground(color);
-    }
+    public void setPos(int x, int y) {base.setPos(x,y);}
 }
 
 /**
  * A simplified JLabel for simple swing
  */
 class Label extends JLabel{
-
+    Base base = new Base();
 
     /**
      * Creates a JLabel
@@ -139,48 +183,18 @@ class Label extends JLabel{
         startup(frame);
     }
 
-    /**
-     * Simple startup things
-     * @param frame The frame to be added to
-     */
-    void startup(Frame frame) {
-        this.setVisible(true);
-        setColor(Color.white);
-        frame.panel.add(this);
-    }
+    public void setColor(Color color){base.setColor(color);}
+    void startup(Frame frame) {base.startup(frame,this);}
+    public void setSize(int sizeX, int sizeY) {base.setSize(sizeX,sizeY);}
 
-    /**
-     * Sets the size of the label
-     * @param sizeX the X Size
-     * @param sizeY the Y Size
-     */
-    public void setSize(int sizeX, int sizeY) {
-        this.setBounds(this.getX(),this.getY(),sizeX,sizeY);
-    }
-
-    /**
-     * Sets the pos of the component
-     * @param x the X cor
-     * @param y the Y cor
-     */
-    public void setPos(int x, int y) {
-        this.setBounds(x,y,this.getSize().width,this.getSize().height);
-    }
-
-    /**
-     * Sets the color of the component
-     * @param color the new color
-     */
-    public void setColor(Color color) {
-        this.setBackground(color);
-    }
-
+    public void setPos(int x, int y) {base.setPos(x,y);}
 }
 
 /**
  * A simplified JButton
  */
 class Button extends JButton {
+    Base base = new Base();
     /**
      * Create a Button with no text
      * @param frame The frame to be added to
@@ -192,6 +206,7 @@ class Button extends JButton {
     Button(Frame frame, int x, int y, int sizeX, int sizeY, boolean enabled) {
         this.setEnabled(enabled);
         this.setBounds(x,y,sizeX,sizeY);
+        setColor(Color.white);
         startup(frame, this);
     }
 
@@ -221,30 +236,10 @@ class Button extends JButton {
         frame.panel.add(comp);
     }
 
-    /**
-     * Sets the size of the label
-     * @param sizeX the X Size
-     * @param sizeY the Y Size
-     */
-    public void setSize(int sizeX, int sizeY) {
-        this.setBounds(this.getX(),this.getY(),sizeX,sizeY);
-    }
+    public void setColor(Color color){this.setBackground(color);}
+    void startup(Frame frame) {base.startup(frame,this);}
+    public void setSize(int sizeX, int sizeY) {base.setSize(sizeX,sizeY);}
 
-    /**
-     * Sets the pos of the component
-     * @param x the X cor
-     * @param y the Y cor
-     */
-    public void setPos(int x, int y) {
-        this.setBounds(x,y,this.getSize().width,this.getSize().height);
-    }
-
-    /**
-     * Sets the color of the compoent
-     * @param color the new color
-     */
-    public void setColor(Color color) {
-        this.setBackground(color);
-    }
+    public void setPos(int x, int y) {base.setPos(x,y);}
 
 }

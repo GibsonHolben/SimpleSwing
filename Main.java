@@ -1,5 +1,6 @@
-package UI.SimpleSwing;
 
+
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,6 +14,7 @@ public class Main  {
         frame.setVisible(true);
         button = new Button(frame, 200, 0, 100, 200,true);
         button.addActionListener(l);
+        Operations.setColor(Color.RED, button);
         Label label = new Label(frame, 0,0 ,100,20,"Test");
         String[] test = {"1", "2", "3"};
         Dropdown dd = new Dropdown(frame, 0, 300, 100, 30, test);

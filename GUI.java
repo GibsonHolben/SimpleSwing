@@ -194,6 +194,7 @@ class Button extends JButton {
         this.setBounds(x,y,sizeX,sizeY);
         this.setText(text);
         startup(frame, this);
+        this.setEnabled(enabled);
     }
 
     /**

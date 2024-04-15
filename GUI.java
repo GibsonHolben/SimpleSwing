@@ -78,6 +78,7 @@ class CheckBox extends JCheckBox {
     {
         this.setBounds(x,y,sizeX,sizeY);
         this.setText(Text);
+        this.setSelected(checked);
         this.addItemListener(e -> isChecked = e.getStateChange() == ItemEvent.SELECTED);
         Operations.startup(frame,this);
     }

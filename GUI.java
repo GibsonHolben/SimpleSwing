@@ -1,9 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-
-
 
 class Operations extends JComponent{
     /**
@@ -78,10 +75,11 @@ class CheckBox extends JCheckBox {
     {
         this.setBounds(x,y,sizeX,sizeY);
         this.setText(Text);
+        this.setSelected(checked);
+        isChecked = checked;
         this.addItemListener(e -> isChecked = e.getStateChange() == ItemEvent.SELECTED);
         Operations.startup(frame,this);
     }
-
     public boolean GetIsChecked(){return isChecked;}
 }
 /**
@@ -123,13 +121,7 @@ class TextBox extends JTextField{
         this.setBounds(x,y,sizeX,sizeY);
         Operations.startup(frame, this);
     }
-
-
-
-
-
 }
-
 
 /**
  * A simplified JCombobox (currently only supports Strings, but we plan to expand in the future
@@ -149,15 +141,12 @@ class Dropdown extends JComboBox<String>{
         this.setBounds(x,y,sizeX,sizeY);
         Operations.startup(frame,this);
     }
-
-
 }
 
 /**
  * A simplified JLabel for simple swing
  */
 class Label extends JLabel{
-
     /**
      * Creates a JLabel
      * @param frame The frame to be added to
@@ -171,8 +160,6 @@ class Label extends JLabel{
         this.setText(text);
         Operations.startup(frame, this);
     }
-
-
 }
 
 /**

@@ -67,6 +67,10 @@ class Frame extends JFrame {
         panel.setSize(sizeX,sizeY);
         this.setSize(sizeX,sizeY);
     }
+
+    public void setColor(Color color) {
+        this.setBackground(color);
+    }
 }
 class CheckBox extends JCheckBox {
 

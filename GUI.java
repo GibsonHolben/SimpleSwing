@@ -67,10 +67,10 @@ class Frame extends JFrame {
         panel.setSize(sizeX,sizeY);
         this.setSize(sizeX,sizeY);
     }
-
     public void setColor(Color color) {
-        this.setBackground(color);
+        panel.setBackground(color);
     }
+
 }
 class CheckBox extends JCheckBox {
 
@@ -80,8 +80,8 @@ class CheckBox extends JCheckBox {
         this.setBounds(x,y,sizeX,sizeY);
         this.setText(Text);
         this.setSelected(checked);
-        this.setContentAreaFilled(false);
         this.setFocusPainted(false);
+
         isChecked = checked;
         this.addItemListener(e -> isChecked = e.getStateChange() == ItemEvent.SELECTED);
         Operations.startup(frame,this);
@@ -185,7 +185,6 @@ class Button extends JButton {
         this.setBounds(x,y,sizeX,sizeY);
         Operations.setColor(Color.white, this);
         startup(frame, this);
-        this.setContentAreaFilled(false);
         this.setFocusPainted(false);
     }
 
@@ -203,7 +202,6 @@ class Button extends JButton {
         this.setText(text);
         startup(frame, this);
         this.setEnabled(enabled);
-        this.setContentAreaFilled(false);
         this.setFocusPainted(false);
     }
 

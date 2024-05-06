@@ -74,6 +74,14 @@ class Frame extends JFrame {
         panel.setSize(sizeX,sizeY);
         this.setSize(sizeX,sizeY);
     }
+
+    /**
+     * Sets the icon of the frame
+     * @param path path to the image
+     */
+    public void setIcon(String path){
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(path));
+    }
     public void setColor(Color color) {
         panel.setBackground(color);
     }

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="eaa916a3-ddf7-463f-8e9d-82ba97983e9c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimpleSwing.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleSwing/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleSwing/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleSwing/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleSwing/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleSwing/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleSwing/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleSwing/Button.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleSwing/CheckBox.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleSwing/Dropdown.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleSwing/Frame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleSwing/Label.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleSwing/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleSwing/Operations.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleSwing/SimpleSwing.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleSwing/TextBox.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleSwing/TextBoxArea.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2g6OlDBIErwxaC1q8L2HVFmJQs6" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Gibson/Pictures/github/SimpleSwing/Source"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="eaa916a3-ddf7-463f-8e9d-82ba97983e9c" name="Changes" comment="" />
+      <created>1715014709652</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1715014709652</updated>
+    </task>
+    <servers />
+  </component>
+</project>

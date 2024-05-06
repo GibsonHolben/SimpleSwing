@@ -8,7 +8,7 @@ public class Main  {
     public static void main(String[] args) {
         //Create a simple Frame with  Title, Show top bar, Is the frame on top of everything else, can the frame be resized, width, height
         Frame frame = new Frame("Test frame", false, false, false, 515, 300);
-
+        frame.setIcon("C:/Users/Gibson/Pictures/Wallpaper.png");
         //Button
         Label label2 =                   new Label(frame,       0,    0 , 100,20, "Button");
         Button ExampleButton =           new Button(frame,      0,    30, 100,200,true,"Example");

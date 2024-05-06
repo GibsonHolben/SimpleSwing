@@ -12,6 +12,13 @@ class Operations extends JComponent{
         setColor(Color.white, add);
         frame.panel.add(add);
     }
+
+    static void startup(JPanel panel, JComponent add) {
+        add.setVisible(true);
+        setColor(Color.white, add);
+        panel.add(add);
+    }
+
     /**
      * Sets the size of the label
      * @param sizeX the X Size
@@ -81,10 +88,19 @@ class CheckBox extends JCheckBox {
         this.setText(Text);
         this.setSelected(checked);
         this.setFocusPainted(false);
-
         isChecked = checked;
         this.addItemListener(e -> isChecked = e.getStateChange() == ItemEvent.SELECTED);
         Operations.startup(frame,this);
+    }
+    CheckBox(JPanel panel, int x, int y, int sizeX, int sizeY, String Text, boolean checked)
+    {
+        this.setBounds(x,y,sizeX,sizeY);
+        this.setText(Text);
+        this.setSelected(checked);
+        this.setFocusPainted(false);
+        isChecked = checked;
+        this.addItemListener(e -> isChecked = e.getStateChange() == ItemEvent.SELECTED);
+        Operations.startup(panel,this);
     }
     public boolean GetIsChecked(){return isChecked;}
 }
@@ -107,6 +123,11 @@ class TextBoxArea extends JTextArea{
         this.setBounds(x,y,sizeX,sizeY);
         Operations.startup(frame,this);
     }
+    TextBoxArea(JPanel panel, int x, int y, int sizeX, int sizeY)
+    {
+        this.setBounds(x,y,sizeX,sizeY);
+        Operations.startup(panel,this);
+    }
 }
 
 /**
@@ -126,6 +147,11 @@ class TextBox extends JTextField{
     {
         this.setBounds(x,y,sizeX,sizeY);
         Operations.startup(frame, this);
+    }
+    TextBox(JPanel panel, int x, int y, int sizeX, int sizeY)
+    {
+        this.setBounds(x,y,sizeX,sizeY);
+        Operations.startup(panel, this);
     }
 }
 
@@ -147,6 +173,12 @@ class Dropdown extends JComboBox<String>{
         this.setBounds(x,y,sizeX,sizeY);
         Operations.startup(frame,this);
     }
+    Dropdown(JPanel panel, int x, int y, int sizeX, int sizeY, String[] array)
+    {
+        super(array);
+        this.setBounds(x,y,sizeX,sizeY);
+        Operations.startup(panel,this);
+    }
 }
 
 /**
@@ -166,27 +198,17 @@ class Label extends JLabel{
         this.setText(text);
         Operations.startup(frame, this);
     }
+    Label(JPanel panel, int x, int y, int sizeX, int sizeY, String text) {
+        this.setBounds(x,y,sizeX,sizeY);
+        this.setText(text);
+        Operations.startup(panel, this);
+    }
 }
 
 /**
  * A simplified JButton
  */
 class Button extends JButton {
-    /**
-     * Create a Button with no text
-     * @param frame The frame to be added to
-     * @param x the X cor
-     * @param y the Y cor
-     * @param sizeX the X size
-     * @param sizeY the Y size
-     */
-    Button(Frame frame, int x, int y, int sizeX, int sizeY, boolean enabled) {
-        this.setEnabled(enabled);
-        this.setBounds(x,y,sizeX,sizeY);
-        Operations.setColor(Color.white, this);
-        startup(frame, this);
-        this.setFocusPainted(false);
-    }
 
     /**
      * Creates a button with text
@@ -200,19 +222,18 @@ class Button extends JButton {
     Button(Frame frame, int x, int y, int sizeX, int sizeY, boolean enabled, String text) {
         this.setBounds(x,y,sizeX,sizeY);
         this.setText(text);
-        startup(frame, this);
+        Operations.startup(frame, this);
         this.setEnabled(enabled);
         this.setFocusPainted(false);
     }
 
-    /**
-     * Simple startup things
-     * @param frame The frame to be added to
-     */
-    void startup(Frame frame, JComponent comp)
-    {
-        comp.setVisible(true);
-        Operations.setColor(Color.white, this);
-        frame.panel.add(comp);
+    Button(JPanel panel, int x, int y, int sizeX, int sizeY, boolean enabled, String text) {
+        this.setBounds(x,y,sizeX,sizeY);
+        this.setText(text);
+        Operations.startup(panel, this);
+        this.setEnabled(enabled);
+        this.setFocusPainted(false);
     }
+
+
 }

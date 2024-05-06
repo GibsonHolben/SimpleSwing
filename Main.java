@@ -6,21 +6,26 @@ import java.awt.event.ActionListener;
 
 public class Main  {
     static listener l = new listener();
-    static Button button;
-
-    static  CheckBox cb;
     public static void main(String[] args) {
         Frame frame = new Frame("Test frame", false, false, false, 1000, 500);
-        frame.setVisible(true);
-        button = new Button(frame, 200, 0, 100, 200,true);
-        button.addActionListener(l);
-        Operations.setColor(Color.RED, button);
-        Label label = new Label(frame, 0,0 ,100,20,"Test");
-        String[] test = {"1", "2", "3"};
-        Dropdown dd = new Dropdown(frame, 0, 300, 100, 30, test);
+
+        Label label2 = new Label(frame, 0,0 ,100,20,"Button");
+        Button ExampleButton = new Button(frame, 200, 0, 100, 200,true,"");
+        Label label3 = new Label(frame, 0,0 ,100,20,"Text box");
+
+        Label label4 = new Label(frame, 0,0 ,100,20,"Text area");
+
+        Label label5 = new Label(frame, 0,0 ,100,20,"Checkbox");
+        CheckBox ExampleCheckBox = new CheckBox(frame, 300, 400, 100, 20,"checked?", false);
+        Label label6 = new Label(frame, 0,0 ,100,20,"Dropdown");
+
+        ExampleButton.addActionListener(l);
+
+
+        String[] test = ;
+        Dropdown dd = new Dropdown(frame, 0, 300, 100, 30, new String[]{"1", "2", "3"});
         TextBox tb = new TextBox(frame, 200, 400, 100, 20);
-        cb = new CheckBox(frame, 300, 400, 100, 20,"checked?", false);
-        System.out.println(cb.GetIsChecked());
+        frame.setVisible(true);
         frame.repaint();
     }
 
